@@ -36,7 +36,7 @@ class KwaraInsts(BaseModel):
     )
 
 
-template = """You are an AI assistant that uses provided information about institutions in Kwara State, Nigeria to determine whether the school is in session and whether admission is ongoing.
+template = """You are an AI assistant that uses provided information about universities in Nigeria to determine whether the school is in session whether admission is ongoing, and its vice chancellor name.
 Information: {information}
 The output should be formatted as JSON using the following format instructions:
 {format_instruction}

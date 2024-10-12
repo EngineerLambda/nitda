@@ -94,7 +94,7 @@ async def load_web_data(query):
 
 @app.get("/chatbot")
 async def chatbot(query, inst_name):
-    chat_template = """You are an AI agent that uses web sourced information of an institution in kwara state Nigeria to answer user questions
+    chat_template = """You are an AI agent that uses web sourced information of a university in Nigeria to answer user questions
         user question: {query}
         web_news: {web_data}
     """

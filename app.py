@@ -6,10 +6,19 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from functools import lru_cache
 
 app = FastAPI()
 
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 date = f"{datetime.now():%Y-%m-%d}"
 
 class KwaraInsts(BaseModel):
@@ -31,7 +40,7 @@ template = """You are an AI assistant that uses provided information about insti
 Information: {information}
 The output should be formatted as JSON using the following format instructions:
 {format_instruction}
-To ensure the information is up-to-date, today's date is {date}.
+To ensure the information is up-to-date, today's date is {date}. Make sure that none of the details include null, use 'not available' instead
 Format the response accordingly."""
 
 prompt = PromptTemplate(template=template, input_variables=["information", "format_instruction", "date"])

@@ -1,4 +1,3 @@
-import os
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import GoogleGenerativeAI
 from langchain.output_parsers import PydanticOutputParser
